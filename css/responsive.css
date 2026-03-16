@@ -117,3 +117,128 @@
     max-width: 1170px;
   }
 }
+
+/* Additional mobile-only tweaks */
+@media (max-width: 480px) {
+  /* Header / nav */
+  .header_section {
+    position: relative;
+  }
+
+  .navbar-brand span {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  .custom_menu-btn {
+    right: 12px;
+    top: 10px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .overlay .closebtn {
+    right: 18px;
+    font-size: 48px;
+  }
+
+  .overlay .overlay-content a {
+    font-size: 20px;
+    padding: 8px 0;
+  }
+
+  /* Slider */
+  .slider_section .detail-box {
+    padding: 24px 0;
+  }
+
+  .slider_section .detail-box h1 {
+    font-size: 1.6rem;
+    line-height: 1.15;
+  }
+
+  .slider_section .detail-box p {
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .slider_section .detail-box .slider-link {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .slider_section .slider_bg_box img {
+    object-position: 50% center;
+  }
+
+  /* Live rates and product sections stack */
+  .live-rates-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 12px;
+  }
+
+  .rates-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .rate-card {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .image-container {
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Shop cards */
+  .shop_section .box {
+    padding: 6px;
+    margin-top: 18px;
+  }
+
+  .shop_section .box .img-box {
+    height: 170px;
+    padding: 6px;
+  }
+
+  .shop_section .box .img-box img {
+    max-height: 140px;
+    width: auto;
+  }
+
+  .shop_section .btn-box {
+    margin-top: 20px;
+  }
+
+  /* Offer and blog text scale down */
+  .offer_section .box.offer-box1 .detail-box h2 {
+    font-size: 1.6rem;
+  }
+
+  .blog_section .box .detail-box p {
+    font-size: 14px;
+  }
+
+  /* Reduce large decorative elements */
+  .about_section .img-box::before {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Make headings more compact */
+  .heading_container h2 {
+    font-size: 1.1rem;
+  }
+}
