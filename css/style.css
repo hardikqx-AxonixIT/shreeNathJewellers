@@ -924,6 +924,31 @@ a:focus {
   box-sizing: border-box;
   flex-wrap: wrap;
 }
+.live-rates-container .rates-container { display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+.live-rates-container .rates-container > .rate-card { width:100%; box-sizing:border-box; }
+
+/* Improved responsive behavior */
+@media (min-width: 992px) {
+  .live-rates-container { flex-direction: row; align-items: center; }
+  .live-rates-container > .rates-container { flex: 0 0 auto; max-width: 420px; }
+  .live-rates-container > .image-container { flex: 0 0 180px; max-width: 180px; }
+  .image-container img { max-width: 160px; }
+}
+
+@media (max-width: 991px) {
+  .live-rates-container { gap: 12px; align-items: center; }
+  .live-rates-container > .rates-container { order: 1; width: 100%; display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+  .live-rates-container > .rates-container > .rate-card { flex: 1 1 45%; max-width: 48%; text-align: center; }
+  .live-rates-container > .image-container { order: 2; width: 100%; display:flex; justify-content:center; }
+  .image-container img { max-width: 220px; height: auto; }
+}
+
+@media (max-width: 599px) {
+  .live-rates-container > .rates-container > .rate-card { flex: 1 1 100%; max-width: 360px; }
+  .image-container img { max-width: 280px; }
+  .rate-card h3 { font-size: 1rem; }
+  .rate-card p { font-size: 0.95rem; }
+}
 .live-rates-container > .rates-container > .rate-card {
   flex: 1 1 140px;
   min-width: 120px;
