@@ -1,0 +1,33 @@
+name: Run liverates.py
+
+on:
+  push:
+    paths:
+      - '**.py'
+      - '.github/workflows/**'
+  workflow_dispatch: {}
+
+jobs:
+  run-liverates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Chromium and Chromedriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser chromium-chromedriver
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run liverates.py
+        run: python liverates.py
