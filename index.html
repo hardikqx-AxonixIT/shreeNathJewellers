@@ -88,11 +88,7 @@
 
 <h1></h1>
 <section class="live-rates-section">
-  
-<p class="rate-note">
-  Rates are indicative. 
-  <a href="https://wa.me/919001561912" target="_blank">Chat on WhatsApp</a> for best price.
-</p>
+ 
   <div class="live-rates-container">
      <div class="rates-container">
   <div class="rate-card">
@@ -130,7 +126,7 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="images/silverring.png" alt="">
+                <img class="product-img" src="images/silverring.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -149,7 +145,7 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="images/p2.png" alt="">
+                <img class="product-img" src="images/p2.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -169,7 +165,7 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="images/p3.png" alt="">
+                <img class="product-img" src="images/p3.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -189,7 +185,7 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="images/p4.png" alt="">
+                <img class="product-img" src="images/p4.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -209,7 +205,7 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="images/p12.png" alt="">
+                <img class="product-img" src="images/p12.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -229,7 +225,7 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="images/p6.png" alt="">
+                <img class="product-img" src="images/p6.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -249,7 +245,7 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="images/bracelet2.png" alt="">
+                <img class="product-img" src="images/bracelet2.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -269,7 +265,7 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="images/p8.png" alt="">
+                <img class="product-img" src="images/p8.png" alt="">
               </div>
               <div class="detail-box">
                 <h6>
@@ -287,7 +283,7 @@
         </div>
       </div>
       <div class="btn-box">
-        <a href="">
+        <a href="shop.html">
           View All Products
         </a>
       </div>
@@ -538,7 +534,7 @@
             </div> -->
           </div>
         </div>
-        <!-- <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-3">
           <div class="info_detail">
             <h4>
               About Us
@@ -547,7 +543,7 @@
               Shree Nath Jewellers – your ultimate destination for gold and diamond jewellery. Explore elegant designs and get the best prices on the latest collections.
             </p>
           </div>
-        </div> -->
+        </div>
         <div class="col-md-6 col-lg-3">
           <h4>
             Contact Us
@@ -562,7 +558,7 @@
             <a href="">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call +91 9549747544
+                Call +91 9001561912
               </span>
             </a>
             <a href="">
@@ -590,12 +586,27 @@
   <!-- footer section -->
 
   <!-- jQery -->
+  <!-- Product modal (zoom + actions) -->
+  <div id="productModal" class="product-modal" aria-hidden="true">
+    <div class="product-modal-content">
+      <button class="pm-close" aria-label="Close">×</button>
+      <div class="pm-image-wrap">
+        <img id="pm-image" src="" alt="Product">
+        <button class="pm-image-close" aria-label="Close image"><i class="fa fa-times"></i></button>
+      </div>
+      <div class="pm-actions" role="toolbar" aria-label="Product actions">
+        <button id="pm-whatsapp" class="pm-btn pm-whatsapp" title="Share on WhatsApp"><i class="fa fa-whatsapp"></i><span class="sr-only">WhatsApp</span></button>
+        <button id="pm-share" class="pm-btn pm-share" title="Share"><i class="fa fa-share-alt"></i><span class="sr-only">Share</span></button>
+        <button id="pm-addcart" class="pm-btn pm-addcart" title="Add to cart"><i class="fa fa-shopping-cart"></i><span class="sr-only">Add to Cart</span></button>
+      </div>
+    </div>
+  </div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <!-- bootstrap js -->
   <script src="js/bootstrap.js"></script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
-  <script src="js/script.js"></script>
+  <script src="js/script.js?v=2"></script>
 
 
   <!-- Floating buttons for Instagram, WhatsApp, Facebook, X, and Location with icons -->

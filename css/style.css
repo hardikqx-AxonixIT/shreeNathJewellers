@@ -799,6 +799,152 @@ a:focus {
   margin: 0 2.5px;
 }
 
+/* Info section: keep four columns in one row on wide screens */
+.info_section .info_main_row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.info_section .info_main_row > div {
+  flex: 1 1 0;
+  min-width: 180px;
+}
+.info_section .info_detail h4,
+.info_section .info_insta h4 {
+  margin-bottom: 8px;
+}
+.info_section .info_contact a {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: inherit;
+  margin-bottom: 6px;
+}
+.info_section .info_contact i { font-size: 18px; color: #fd9c6b }
+.info_section .insta_box .img-box img { max-width: 72px; border-radius:6px }
+
+@media (max-width: 991px) {
+  .info_section .info_main_row { flex-wrap: wrap; }
+  .info_section .info_main_row > div { flex: 1 1 45%; max-width: 48%; }
+}
+
+@media (max-width: 599px) {
+  .info_section .info_main_row > div { flex: 1 1 100%; max-width: 100%; }
+  .info_section .insta_box .img-box img { max-width: 120px }
+}
+
+/* Product modal styles */
+.product-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 2000;
+}
+.product-modal.open { display: flex; }
+.product-modal-content {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 720px;
+  width: calc(100% - 40px);
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  animation: pmScale .25s ease-out;
+}
+.pm-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+}
+.pm-image-wrap { text-align: center; padding: 12px 12px 6px; position: relative; }
+.pm-image-wrap img { max-width: 100%; max-height: 60vh; object-fit: contain; display:block; margin:0 auto; }
+.pm-image-close { position: absolute; right: 10px; top: 10px; background: rgba(0,0,0,0.5); color: #fff; border: none; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.pm-actions { display:flex; gap:12px; padding:12px; justify-content:center; border-top:1px solid #eee; }
+.pm-btn { padding:10px; width:48px; height:48px; border-radius:50%; border:1px solid rgba(0,0,0,0.08); background:#fff; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; font-size:18px; color:#fff; }
+.pm-btn i { font-size:18px; }
+.pm-whatsapp { background:#25D366; }
+.pm-share { background:#3b5998; }
+.pm-addcart { background:#fd9c6b; }
+.sr-only { position: absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+
+@keyframes pmScale {
+  from { transform: translateY(8px) scale(.98); opacity:0 }
+  to { transform: translateY(0) scale(1); opacity:1 }
+}
+
+/* Responsive layout for live rates section */
+.live-rates-section {
+  padding: 18px 9px;
+  background: linear-gradient(180deg, #fff, #faf8f3);
+}
+.live-rates-container {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* allow wrapping instead of scrolling */
+  overflow-x: visible;
+}
+.live-rates-container > .rate-card,
+.live-rates-container > .image-container {
+  flex: 1 1 200px; /* allow items to shrink/grow */
+  min-width: 160px;
+  max-width: 320px;
+}
+.rate-card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 160px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.rate-card h3 { margin: 0 0 8px; font-size: 1rem; }
+.rate-card p { margin: 0; font-size: 0.95rem; }
+.rate-detail { color: #666; font-size: 0.85rem; margin-top:6px }
+.image-container { display:flex; align-items:center; justify-content:center }
+.image-container img { max-width: 100%; width:100%; height:auto; object-fit:contain; border-radius:8px }
+
+/* smaller screens: stack vertically and make rate-cards full width */
+
+@media (max-width: 991px) {
+  /* Tablet and below: make items more compact and allow two-per-row */
+  .live-rates-container { gap: 12px; padding: 10px }
+  .live-rates-container > .rate-card,
+  .live-rates-container > .image-container { flex: 1 1 45%; max-width: 48%; }
+  .rate-note { display:block; width:100%; text-align:center; margin-bottom:6px }
+}
+
+@media (max-width: 599px) {
+  /* Mobile: stack vertically (no horizontal scroll) */
+  .live-rates-container { flex-direction: column; align-items: center }
+  .live-rates-container > .rate-card,
+  .live-rates-container > .image-container { flex: 1 1 100%; max-width: 420px; }
+  .image-container img { max-width: 320px }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .live-rates-container { gap: 14px }
+  .image-container { flex: 0 0 180px }
+  .image-container img { max-width: 160px }
+}
+
 .client_section .carousel-control-prev:hover,
 .client_section .carousel-control-next:hover {
   background-color: #160e0b;
@@ -1070,7 +1216,7 @@ margin-top:15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 18px;
   background-color: #f9f9f9;
 }
 
@@ -1096,16 +1242,16 @@ margin-top:15px;
   gap: 20px;
 }
 
-.rate-card {
+/* .rate-card {
   background-color: #fff8dc;
   border: 2px solid #ffd700;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   width: 300px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+} */
 
 .rate-card:hover {
   transform: scale(1.05);
@@ -1113,7 +1259,7 @@ margin-top:15px;
 }
 
 .rate-card h3 {
-  font-size: 24px;
+  font-size: 22px;
   color: #b8860b;
   margin-bottom: 10px;
 }
@@ -1155,7 +1301,7 @@ margin-top:15px;
   background-color: #fff8dc;
   border: 2px solid #ffd700;
   border-radius: 10px;
-  padding: 20px;
+  padding: 10px;
   width: 300px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
