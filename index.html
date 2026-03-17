@@ -640,11 +640,17 @@
 <script>
   async function loadRates() {
     try {
-      // Trigger the backend to update rates
-      await fetch('/update-rates');
+      // Trigger the backend to update rates and check result
+      const updateResp = await fetch('/update-rates');
+      if (!updateResp.ok) {
+        const err = await updateResp.json().catch(() => ({}));
+        console.error('Rate updater failed:', err);
+        // continue to fetch existing rates.json even if update failed
+      }
 
-      // Fetch the updated rates.json file
+      // Fetch the updated rates.json file (cache-busted)
       const response = await fetch('/rates.json?' + new Date().getTime());
+      if (!response.ok) throw new Error('Failed to fetch rates.json');
       const data = await response.json();
 
       // Update the HTML elements with the fetched rates

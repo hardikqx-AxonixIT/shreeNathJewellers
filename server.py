@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, send_from_directory
 import subprocess
 import os
+import sys
 
 app = Flask(__name__, static_folder='')
 
@@ -9,8 +10,21 @@ app = Flask(__name__, static_folder='')
 def update_rates():
     try:
         # Run the liverates.py script
-        subprocess.run(['python', 'liverates.py'], check=True)
-        return jsonify({"message": "Rates updated successfully"}), 200
+        # Use the same Python interpreter that's running the server
+        script_path = os.path.join(os.getcwd(), 'liverates.py')
+        result = subprocess.run([
+            sys.executable,
+            script_path
+        ], cwd=os.getcwd(), capture_output=True, text=True)
+
+        if result.returncode != 0:
+            return jsonify({
+                "error": "liverates.py failed",
+                "stdout": result.stdout,
+                "stderr": result.stderr
+            }), 500
+
+        return jsonify({"message": "Rates updated successfully", "stdout": result.stdout}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
