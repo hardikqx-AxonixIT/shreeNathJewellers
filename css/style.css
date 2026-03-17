@@ -904,6 +904,25 @@ a:focus {
   min-width: 160px;
   max-width: 320px;
 }
+
+/* If rate-cards are wrapped inside a .rates-container, ensure it behaves like a flex child
+   so the overall live-rates layout stays responsive (keeps images from forcing overflow). */
+.live-rates-container > .rates-container {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex: 1 1 200px;
+  min-width: 160px;
+  max-width: 420px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+.live-rates-container > .rates-container > .rate-card {
+  flex: 1 1 140px;
+  min-width: 120px;
+  max-width: 100%;
+}
 .rate-card {
   background: #fff;
   border: 1px solid #eee;
