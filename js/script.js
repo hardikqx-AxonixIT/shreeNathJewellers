@@ -12,12 +12,16 @@ document.addEventListener('DOMContentLoaded', function () {
     pmImage.src = imgSrc;
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
+    // prevent background from scrolling while modal is open (important for mobile)
+    try { document.body.style.overflow = 'hidden'; } catch (e) {}
   }
 
   function closeModal() {
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     pmImage.src = '';
+    // restore background scrolling
+    try { document.body.style.overflow = ''; } catch (e) {}
   }
 
   document.querySelectorAll('.product-img').forEach(img => {

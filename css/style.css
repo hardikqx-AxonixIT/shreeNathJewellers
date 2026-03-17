@@ -849,6 +849,7 @@ a:focus {
 .product-modal-content {
   background: #fff;
   border-radius: 8px;
+  position: relative;
   max-width: 720px;
   width: calc(100% - 40px);
   overflow: hidden;
